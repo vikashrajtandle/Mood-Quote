@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            /* display: flex; */
+            background-color: antiquewhite;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            padding: 20px;
+            background-color: rgb(50, 14, 83);
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar ul {
+            font-size: 20px;
+            padding: 10px 0px;
+
+        }
+
+        .sidebar ul a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 25px;
+            cursor: pointer;
+        }
+
+        .main {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-areas: "1 1 1"
+                "2 2 2"
+        }
+
+        .btn {
+            padding: 10px;
+            margin: 20px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 2px 3px 4px black;
+            background-color: rgb(46, 33, 95);
+            color: white;
+            font-weight: bolder;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            border: 3px solid greenyellow;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .MENU {
+            padding: 6px 61px;
+            color: rgb(255, 255, 255);
+            font-size: 25px;
+        }
+
+        .hamburger {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="MENU">MENU</div>
+        <ul>
+            <a href="#">Home</a>
+            <a href="#">ContactUS</a>
+            <a href="#">About</a>
+        </ul>
+    </div>
+
+    <form id="moodform" method="POST" action="/">
+        <input type="hidden" name="mood" id="moodinput">
+    </form>
+
+    <header>Select Your Mood</header>
+    <div class="main">
+        <button class="btn" onclick="submitMood('Sadness')">Sadness</button>
+        <button class="btn" onclick="submitMood('Anger')">Anger</button>
+        <button class="btn" onclick="submitMood('Calm')">Calm</button>
+        <button class="btn" onclick="submitMood('Anxious')">Anxious</button>
+        <button class="btn" onclick="submitMood('Disgust')">Disgust</button>
+        <button class="btn" onclick="submitMood('Fear')">Fear</button>
+        <button class="btn" onclick="submitMood('Happiness')">Happiness</button>
+        <button class="btn" onclick="submitMood('Content')">Content</button>
+        <button class="btn" onclick="submitMood('Excited')">Excited</button>
+        <button class="btn" onclick="submitMood('Empathetic')">Empathetic</button>
+        <button class="btn" onclick="submitMood('Envy')">Envy</button>
+        <button class="btn" onclick="submitMood('Gratitude')">Gratitude</button>
+        <button class="btn" onclick="submitMood('Irritated')">Irritated</button>
+        <button class="btn" onclick="submitMood('Love')">Love</button>
+        <button class="btn" onclick="submitMood('Cheerful')">Cheerful</button>
+        <button class="btn" onclick="submitMood('Confused')">Confused</button>
+        <button class="btn" onclick="submitMood('Doubt')">Doubt</button>
+        <button class="btn" onclick="submitMood('Embarrassment')">Embarrassment</button>
+        <button class="btn" onclick="submitMood('Enjoyment')">Enjoyment</button>
+        <button class="btn" onclick="submitMood('Frustrated')">Frustrated</button>
+        <button class="btn" onclick="submitMood('Gloomy')">Gloomy</button>
+        <button class="btn" onclick="submitMood('Hopeful')">Hopeful</button>
+        <button class="btn" onclick="submitMood('Stressed')">Stressed</button>
+        <button class="btn" onclick="submitMood('Acceptance')">Acceptance</button>
+    </div>
+    <script src="/static/mood.js"></script>
+</body>
+
+</html>
